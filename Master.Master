@@ -1,0 +1,133 @@
+﻿        <%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Master.master.cs" Inherits="TiemAnVat.Master" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="Images/Favicon.ico">
+    <title>Tiệm ăn vặt</title>
+    <link rel="stylesheet" href="CSS/site.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js">    </script>
+    <!--
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    -->
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            width: 580px;
+            height: 376px;
+        }
+        .auto-style2 {
+            width: 64px;
+            height: 64px;
+            margin-left: 0px;
+        }
+        .auto-style3 {
+            width: 621px;
+        }
+        .auto-style4 {
+            width: 595px;
+        }
+        .custom-table {
+        display: flex;
+        flex-wrap: wrap;
+        }
+        .custom-table td {
+            flex: 1;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div class="logo-and-title">
+                <a href="Default.aspx">
+                    <img src="Images/AnVatLogo.png" alt="Tiem an vat Logo" class="auto-style2">
+                </a>
+        <h2 style="display: inline;"><%=Page.Title %></h2>
+    </div>
+    </header>
+    <form id="form1" runat="server">
+        <div class="row">
+            <div class="navbar-collapse collapse">
+                <div class="col-sm-9">
+                    <ul class="nav navbar-nav" style="font-weight: bold;">
+                        <li><asp:HyperLink ID="HomeLink" runat="server" NavigateUrl="Default.aspx">Trang chủ</asp:HyperLink></li>
+                        <li><asp:HyperLink ID="VoucherLink" runat="server" NavigateUrl="Voucher.aspx">Săn Voucher</asp:HyperLink></li>
+                        <li><asp:HyperLink ID="LSDHLink" runat="server" NavigateUrl="LichSuDonHang.aspx">Lịch sử đặt hàng</asp:HyperLink></li>
+                        <li><asp:HyperLink ID="QuanlyLink" runat="server" NavigateUrl="Quanly.aspx">Quản lý sản phẩm</asp:HyperLink></li>
+                        <li><asp:HyperLink ID="QuanlyVCLink" runat="server" NavigateUrl="QuanlyVC.aspx">Quản lý Voucher</asp:HyperLink></li>
+                        <li><asp:HyperLink ID="QuanlyDHLink" runat="server" NavigateUrl="QuanlyDH.aspx">Quản lý đơn hàng</asp:HyperLink></li>
+
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <asp:LinkButton ID="Login_BTN" runat="server" Text="Đăng nhập" OnClick="Login_BTN_Click">Đăng nhập</asp:LinkButton>
+                    <asp:LinkButton ID="Logout_BTN" runat="server" Text="Đăng xuất" OnClick="Logout_BTN_Click">Đăng xuất</asp:LinkButton>
+                    <asp:Label ID="CurrentUser" runat="server" Text=""></asp:Label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <asp:ContentPlaceHolder ID="Noidung" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+
+            <div class="col-sm-12 custom-bg-color">
+                <table class="custom-table">
+                    <tr>
+                        <td class="auto-style4">
+                            <h2>Giới thiệu</h2>
+                            <p>
+                                Tiệm ăn vặt: Nơi lan tỏa niềm vui qua mỗi miếng ngon - Khám phá thế giới đồ ăn vặt tươi ngon, nơi bạn tìm thấy sự hài lòng kép: bụng no và tâm hồn hạnh phúc!
+                            </p>
+                        </td>
+                        <td class="auto-style4">
+                            <h2>Liên hệ</h2>
+                            <ul>
+                                <li>
+                                    <span>Địa chỉ:</span>
+                                    <a href="https://maps.app.goo.gl/cpSxDqrg7rU4ecAu5" target="_blank" title="Đà Nẵng">Đà Nẵng</a>
+                                </li>
+                                <li>
+                                    <span>Email:</span>
+                                    <a href="mailto:thaihoangbao@outlook.com" title="thaihoangbao@outlook.com">thaihoangbao@outlook.com</a>
+                                </li>
+                                <li>
+                                    <span>Số điện thoại:</span>
+                                    <a href="tel:+84356329282" title="0356329282">0356329282</a>
+                                </li>
+                            </ul>
+                        </td>
+                        <td class="auto-style4">
+                            <div id="imageContainer">
+                                <img src="Images/AnVat3.jpg" id="image" alt="First Image" class="auto-style1">
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+    </div>
+
+        <script>
+            var images = ['Images/AnVat1.png','Images/AnVat2.jpg','Images/AnVat3.jpg'];
+            var currentIndex = 0;
+            var imageElement = document.getElementById('image');
+
+        function changeImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            imageElement.src = images[currentIndex];
+            }
+        
+           setInterval(changeImage, 3000);
+        </script>
+    </form>
+</body>
+</html>

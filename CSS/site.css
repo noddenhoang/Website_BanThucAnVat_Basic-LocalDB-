@@ -1,0 +1,24 @@
+﻿.giua {
+    margin-left: auto;
+    margin-right: auto;
+}
+.logo-and-title {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+    .logo-and-title img {
+        vertical-align: middle;
+        margin-right: 10px;
+    }
+@media (max-width: 768px) {
+}
+
+.custom-bg-color {
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+.menu-label {
+    font-weight: bold;
+    font-size: 14px;
+}
