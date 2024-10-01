@@ -29,7 +29,7 @@ Người quản trị (Admin) có thể thực hiện các chức năng sau:
   - **Xóa đơn hàng:** Xóa các đơn hàng nếu khách hàng gọi điện yêu cầu hủy.
 
 - **Tên đăng nhập và tài khoản cho admin:**
-  - ** Admin **
-  - ** 1766 **
+  - Admin
+  - 1766
   
 Demosite: [http://thaihoangbaotiemanvat.runasp.net/](http://thaihoangbaotiemanvat.runasp.net/)
